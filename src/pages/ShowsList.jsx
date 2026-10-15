@@ -5,6 +5,7 @@ export default function ShowsList() {
     const [shows, setShows] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
         fetch('https://api.tvmaze.com/shows?page=0')
@@ -24,6 +25,10 @@ export default function ShowsList() {
                 setLoading(false);
             });
     }, []);
+
+    const  filteredShows = shows.filter((show) => 
+        show.name.toLowerCase().includes(search.toLowerCase())
+    );
 
     return (
         <main className="shows-page">
@@ -65,11 +70,19 @@ export default function ShowsList() {
                 )}
 
                 {!loading && !error && (
-                    <div className="shows-list">
-                        {shows.map((show) => (
-                            <ShowCard key={show.id} show={show} />
-                        ))}
-                    </div>
+                    <>
+                    <input type='text' className='search-input' placeholder='Search shows by name...' 
+                    value={search} onChange={(e) => setSearch(e.target.value)} />
+                    {filteredShows.length === 0 ? (
+                        <p className='status-message'>No shows match your search.</p>
+                    ) : (
+                        <div className='shows-list'>
+                            {filteredShows.map((show) => (
+                                <ShowCard key={show.id} show={show} />
+                            ))}
+                        </div>
+                    )}
+                    </>
                 )}
             </section>
         </main>
