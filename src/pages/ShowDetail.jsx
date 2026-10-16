@@ -17,6 +17,13 @@ export default function ShowDetail() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    if (!/^\d+$/.test(id)){
+      setShow(null);
+      setError('Show not found.');
+      setLoading(false);
+      setCast([]);
+      return;
+    }
     setLoading(true);
     setError('');
     setCast([]);
