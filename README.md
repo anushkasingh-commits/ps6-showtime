@@ -1,16 +1,61 @@
-# React + Vite
+# ShowTime : TV Show Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## PS Number
 
-Currently, two official plugins are available:
+PS6
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Project Name 
 
-## React Compiler
+ShowTime
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Description
 
-## Expanding the ESLint configuration
+ShowTime is a TV show browser. It lists 40 shows from the TVMaze API as a searchable card grid, and each show has a detail page with its poster, genres, language, premiere date, rating, summary, and cast. Search filters the list by name as you type.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## API Used
+
+[TVMaze API](https://www.tvmaze.com/api). It is free and needs no API key.
+
+Endpoints used: 
+
+- `https://api.tvmaze.com/shows?page=0`: the show list
+- `https://api.tvmaze.com/shows/:id`: a single show
+- `https://api.tvmaze.com/shows/:id/cast`: the cast for a show
+
+## Routes
+
+| Route | Page | Description |
+|---|---|---|
+| `/` | Home | Landing hero with a "Browse shows" button |
+| `/shows` | Discover | Grid of 40 shows with search by name |
+| `/shows/:id` | Show detail | Poster, details, summary, and cast list |
+| `*` | 404 | "Page not found" with a link back to Home |
+
+## Screenshots
+
+![Home page](screenshots/home.png)
+
+![Discover page](screenshots/shows.png)
+
+## Tech Stack
+
+- React
+- React Router
+- Vite
+- CSS
+- TVMaze API
+
+## Live Link
+
+[Live demo]()
+
+## How to run locally
+
+```bash
+git clone https://github.com/anushkasingh-commits/ps6-showtime.git
+cd ps6-showtime
+npm install
+npm run dev
+```
+
+Then open `http://localhost:5173` in your browser.
