@@ -62,19 +62,19 @@ export default function ShowDetail() {
     <div className="detail-page">
       <button onClick={() => navigate(-1)}>Back</button>
       {loading && <p>Loading show...</p>}
-      {loading && !error && <p>{error}</p>}
+      {!loading && error && <p className='status-message'>{error}</p>}
       {!loading && !error && show && (
         <>
         {show.image?.medium ? (
           <img src={show.image.medium} alt={show.name}/>
         ) : (
-          <div className='place-holder'>No poster available</div>
+          <div className='poster-holder'>No poster available</div>
         )}
         <h1>{show.name}</h1>
-        <p>Genre : {show.genres?.join(', ') || 'N/A'}</p>
+        <p>Genres : {show.genres?.join(', ') || 'N/A'}</p>
         <p>Language : {show.language || 'N/A'}</p>
         <p>Premiere date : {show.premiered || 'N/A'}</p>
-        <p>Genres : {show.rating?.average ?? 'N/A'}</p>
+        <p>Rating : {show.rating?.average ?? 'N/A'}</p>
         <p>{summary}</p>
 
         <h2>Cast</h2>
