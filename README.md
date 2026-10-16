@@ -47,7 +47,7 @@ Endpoints used:
 
 ## Live Link
 
-[Live demo](https://ps6-showtime-n1emeqrxf-anushkas-projects-40c7077a.vercel.app/)
+[Live demo](https://ps6-showtime-eight.vercel.app/)
 
 ## How to run locally
 
